@@ -42,7 +42,7 @@ Exemple de configuration, si vous voulez effectuer une verification toutes les 5
 },
 ```
 
-# Credits
+# Crédits
   * Programmation: Bugsounet
   * Idées/Mise en page/CSS: 2hdlockness
 
