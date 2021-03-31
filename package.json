@@ -1,0 +1,19 @@
+{
+  "name": "MMM-Saint",
+  "version": "1.0.0",
+  "description": "sample module",
+  "main": "MMM-Saint.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bugsounet/MMM-Saint"
+  },
+  "author": [
+    "@bugsounet",
+    "2hdlockness"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "http://forum.bugsounet.fr"
+  },
+  "homepage": "https://github.com/bugsounet/MMM-Saint"
+}
