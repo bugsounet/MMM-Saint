@@ -45,12 +45,21 @@ Module.register("MMM-Saint", {
   },
 
   displayData: function() {
+    var saint = document.getElementById("SAINT")
+    saint.innerHTML = "<span class=\"fas fa-bible\"></span> " + this.Saint
+  },
+
+/*
+ *  To debug,
+ * @todo with css will be better !
+  displayData: function() {
     this.hide(500, () => {
       var saint = document.getElementById("SAINT")
       saint.innerHTML = "<span class=\"fas fa-bible\"></span> " + this.Saint
       this.show(500)
     })
   },
+*/
 
   getStyles: function() {
     return ["MMM-Saint.css", "font-awesome.css"]

@@ -1,7 +1,7 @@
 {
   "name": "MMM-Saint",
-  "version": "1.0.0",
-  "description": "sample module",
+  "version": "1.0.1",
+  "description": "Affiche le saint du jour sur MagicMirror",
   "main": "MMM-Saint.js",
   "repository": {
     "type": "git",
