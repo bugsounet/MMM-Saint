@@ -12,7 +12,7 @@ Module.register("MMM-Saint", {
       tomorrowText: "Demain, nous fêterons",
       displayIcon: true
     },
-    update: 15*1000
+    update: 60*1000
   },
 
   start: function () {
