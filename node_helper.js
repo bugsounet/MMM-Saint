@@ -379,9 +379,15 @@ module.exports = NodeHelper.create({
     this.Saint[31][10] = 'St Quentin'
     this.Saint[31][12] = 'St Sylvestre'
 
-    this.Day= null
-    this.Month= null
+    this.DayNow= null
+    this.MonthNow= null
     this.myDay= null
+    this.DayTomorrow = null
+    this.MonthTomorrow = null
+    this.Data= {
+      today: null,
+      tomorrow: null
+    }
   },
 
   socketNotificationReceived: function (notification, payload) {
@@ -410,18 +416,21 @@ module.exports = NodeHelper.create({
   },
 
   SaintDuJour: function() {
-    log("Actual Day: " + this.Day, "In memory: " + this.myDay)
-    var Saint = this.Saint[this.Day][this.Month]
-    log("Today " + this.Day + "/" + this.Month + ":" , Saint)
-    return Saint
+    log("Actual Day: " + this.DayNow, "In memory: " + this.myDay)
+    this.Data.today = this.Saint[this.DayNow][this.MonthNow]
+    this.Data.tomorrow = this.Saint[this.DayTomorrow][this.MonthTomorrow]
+    log("Today " + this.DayNow + "/" + this.MonthNow + ":" , this.Data.today)
+    log("Tomorrow " + this.DayTomorrow + "/" + this.MonthTomorrow + ":" , this.Data.tomorrow)
+
+    return this.Data
   },
 
   update: function() {
     setInterval(() => {
       this.getDate()
-      if (this.Day != this.myDay) {
+      if (this.DayNow != this.myDay) {
         this.sendData(this.SaintDuJour())
-        this.myDay = this.Day
+        this.myDay = this.DayNow
         log("Updated!")
       }
     }, this.config.update)
@@ -429,7 +438,10 @@ module.exports = NodeHelper.create({
 
   getDate: function() {
     var MyDate = new Date()
-    this.Day = MyDate.getUTCDate()
-    this.Month = MyDate.getUTCMonth() + 1
+    this.DayNow = MyDate.getUTCDate()
+    this.MonthNow = MyDate.getUTCMonth() + 1
+    var Tomorrow = new Date(new Date().setDate(new Date().getDate() + 1))
+    this.DayTomorrow = Tomorrow.getUTCDate()
+    this.MonthTomorrow = Tomorrow.getUTCMonth() +1
   }
 });
