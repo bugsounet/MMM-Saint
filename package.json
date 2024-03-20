@@ -28,6 +28,10 @@
     "url": "https://github.com/bugsounet/MMM-Saint/issues"
   },
   "homepage": "https://github.com/bugsounet/MMM-Saint",
+  "dependencies": {
+    "esbuild": "^0.20.2",
+    "glob": "^10.3.10"
+  },
   "devDependencies": {
     "@eslint/js": "^8.57.0",
     "@stylistic/eslint-plugin": "^1.7.0",
