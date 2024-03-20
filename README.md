@@ -1,6 +1,5 @@
 # MMM-Saint
 
-<<<<<<< HEAD
 Ceci est un module pour MagicMirror.<br>
 Il permet d'afficher le `Saint du Jour` sur votre Miroir
 
