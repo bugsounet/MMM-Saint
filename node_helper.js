@@ -1,5 +1,7 @@
-/* Magic Mirror
+/*
  * Module: MMM-Saint
+ * @bugsounet
+ * 2hdlockness
  */
 
 const NodeHelper = require("node_helper");
@@ -403,12 +405,13 @@ module.exports = NodeHelper.create({
   },
 
   initialize () {
-    console.log("[SAINT] MMM-Saint is now initialized!");
+    console.log("[SAINT] MMM-Saint Version:", require("./package.json").version, "rev:", require("./package.json").rev);
     this.sendSocketNotification("INITIALIZED");
     this.myDay= new Date().getUTCDate();
     this.getDate();
     this.sendData(this.SaintDuJour());
     this.update();
+    console.log("[SAINT] MMM-Saint is now initialized!");
   },
 
   sendData (data) {
@@ -417,11 +420,11 @@ module.exports = NodeHelper.create({
   },
 
   SaintDuJour () {
-    log(`Actual Day: ${  this.DayNow}`, `In memory: ${  this.myDay}`);
+    log(`Actual Day: ${this.DayNow}`, `In memory: ${this.myDay}`);
     this.Data.today = this.Saint[this.DayNow][this.MonthNow];
     this.Data.tomorrow = this.Saint[this.DayTomorrow][this.MonthTomorrow];
-    log(`Today ${  this.DayNow  }/${  this.MonthNow  }:` , this.Data.today);
-    log(`Tomorrow ${  this.DayTomorrow  }/${  this.MonthTomorrow  }:` , this.Data.tomorrow);
+    log(`Today ${this.DayNow}/${this.MonthNow}:`, this.Data.today);
+    log(`Tomorrow ${this.DayTomorrow}/${this.MonthTomorrow}:`, this.Data.tomorrow);
 
     return this.Data;
   },
