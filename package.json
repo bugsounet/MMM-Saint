@@ -1,19 +1,45 @@
 {
   "name": "MMM-Saint",
-  "version": "0.0.0+EOL",
+  "version": "1.0.0",
+  "rev": "240320",
   "description": "Affiche le saint du jour sur MagicMirror",
   "main": "MMM-Saint.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/bugsounet/MMM-Saint"
   },
+  "scripts": {
+    "preinstall": "installer/preinstall.sh",
+    "postinstall": "installer/postinstall.sh -m",
+    "update": "installer/update.sh",
+    "reset": "git reset --hard",
+    "clean": "rm -rf node_modules package-lock.json",
+    "lint": "eslint *.js installer/*.js --config eslint.config.js",
+    "lint:fix": "eslint *.js installer/*.js --config eslint.config.js --fix",
+    "test": "npm run lint",
+    "test:minify": "cd installer && node minify.js"
+  },
+  "keywords": [
+    "saint",
+    "french"
+  ],
   "author": [
     "@bugsounet",
     "2hdlockness"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "http://forum.bugsounet.fr"
+    "url": "https://github.com/bugsounet/MMM-Saint/issues"
   },
-  "homepage": "https://github.com/bugsounet/MMM-Saint"
+  "homepage": "https://github.com/bugsounet/MMM-Saint",
+  "dependencies": {
+    "esbuild": "^0.20.2",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.57.0",
+    "@stylistic/eslint-plugin": "^1.7.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1"
+  }
 }
