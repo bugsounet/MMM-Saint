@@ -19,6 +19,10 @@
     "test": "npm run lint",
     "test:minify": "cd installer && node minify.js"
   },
+  "keywords": [
+    "saint",
+    "french"
+  ],
   "author": [
     "@bugsounet",
     "2hdlockness"
