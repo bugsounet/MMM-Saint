@@ -48,5 +48,3 @@ Exemple de configuration, si vous voulez effectuer une verification toutes les 5
 
 # Donations
 [Donations](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TTHRH94Y4KL36&source=url), si vous aimez mes modules !
-
-# Support on [The 4th MagicMirror modules](http://forum.bugsounet.fr)
