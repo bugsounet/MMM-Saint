@@ -15,61 +15,61 @@ Module.register("MMM-Saint", {
     update: 60*1000
   },
 
-  start: function () {
-    console.log("[SAINT] Starting MMM-Saint...")
+  start () {
+    console.log("[SAINT] Starting MMM-Saint...");
   },
 
-  notificationReceived: function (notification, payload) {
+  notificationReceived (notification, payload) {
     switch (notification) {
       case "DOM_OBJECTS_CREATED":
-        this.sendSocketNotification("CONFIG", this.config)
-        break
+        this.sendSocketNotification("CONFIG", this.config);
+        break;
     }
   },
 
-  socketNotificationReceived: function (notification, payload) {
+  socketNotificationReceived (notification, payload) {
     switch (notification) {
       case "INITIALIZED":
-        console.log("[SAINT] Ready")
-        break
+        console.log("[SAINT] Ready");
+        break;
       case "DATA":
-        if (this.config.debug) console.log("[SAINT] Data", payload)
-        this.Saint= payload
-        this.displayData()
-        break
+        if (this.config.debug) console.log("[SAINT] Data", payload);
+        this.Saint= payload;
+        this.displayData();
+        break;
     }
   },
 
-  getDom: function () {
-    var wrapper= document.createElement("div")
+  getDom () {
+    var wrapper= document.createElement("div");
 
-    var saint= document.createElement("div")
-    saint.id= "SAINT"
+    var saint= document.createElement("div");
+    saint.id= "SAINT";
 
-    var today= document.createElement("div")
-    today.id = "TODAY"
+    var today= document.createElement("div");
+    today.id = "TODAY";
 
-    var tomorrow = document.createElement("div")
-    tomorrow.id= "TOMORROW"
+    var tomorrow = document.createElement("div");
+    tomorrow.id= "TOMORROW";
 
-    saint.appendChild(today)
-    saint.appendChild(tomorrow)
+    saint.appendChild(today);
+    saint.appendChild(tomorrow);
 
-    wrapper.appendChild(saint)
-    return wrapper
+    wrapper.appendChild(saint);
+    return wrapper;
   },
 
-  displayData: function() {
-    var today = document.getElementById("TODAY")
-    var tomorrow = document.getElementById("TOMORROW")
-    if (this.config.personalize.displayIcon) today.innerHTML = "<span class=\"fas fa-bible\"></span> " + this.Saint.today
+  displayData () {
+    var today = document.getElementById("TODAY");
+    var tomorrow = document.getElementById("TOMORROW");
+    if (this.config.personalize.displayIcon) today.innerHTML = `<span class="fas fa-bible"></span> ${  this.Saint.today}`;
     else {
-      today.textContent = this.config.personalize.todayText + " " + this.Saint.today
-      if (this.config.personalize.displayTomorrow) tomorrow.textContent = this.config.personalize.tomorrowText + " " + this.Saint.tomorrow
+      today.textContent = `${this.config.personalize.todayText  } ${  this.Saint.today}`;
+      if (this.config.personalize.displayTomorrow) tomorrow.textContent = `${this.config.personalize.tomorrowText  } ${  this.Saint.tomorrow}`;
     }
   },
 
-/*
+  /*
  *  To debug,
  * @todo with css will be better !
   displayData: function() {
@@ -81,7 +81,7 @@ Module.register("MMM-Saint", {
   },
 */
 
-  getStyles: function() {
-    return ["MMM-Saint.css", "font-awesome.css"]
+  getStyles () {
+    return ["MMM-Saint.css", "font-awesome.css"];
   }
 });
