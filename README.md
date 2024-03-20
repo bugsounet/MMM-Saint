@@ -58,9 +58,13 @@ Exemple de configuration, si vous voulez effectuer une verification toutes les 5
  | personalize Object Option  | Description | Type | Defaut |
  | ------- | --- | --- | --- |
  | displayTomorrow | Affiche le saint du lendemain | Boolean | false |
- | todayText | Texte pour le saint du jour | String | Aujourd'hui, nous fêtons |
- | tomorrowText | Texte pour le saint du lendemain | String | Demain, nous fêterons |
+ | todayText | Texte personalisé pour le saint du jour | String | Aujourd'hui, nous fêtons |
+ | tomorrowText | Texte personalisé pour le saint du lendemain | String | Demain, nous fêterons |
  | displayIcon | Affiche l'icone | Boolean | true |
+
+Notes:
+ * `displayTomorrow` est inactif si `displayIcon` est actif (true)
+ * L'affichage du text personalisé (`todayText` et `tomorrowText`) est inactif si `displayIcon` est actif
 
 # Mise à jour
 
