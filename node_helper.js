@@ -1,5 +1,7 @@
-/* Magic Mirror
+/*
  * Module: MMM-Saint
+ * @bugsounet
+ * 2hdlockness
  */
 
 const NodeHelper = require("node_helper");
@@ -417,11 +419,11 @@ module.exports = NodeHelper.create({
   },
 
   SaintDuJour () {
-    log(`Actual Day: ${  this.DayNow}`, `In memory: ${  this.myDay}`);
+    log(`Actual Day: ${this.DayNow}`, `In memory: ${this.myDay}`);
     this.Data.today = this.Saint[this.DayNow][this.MonthNow];
     this.Data.tomorrow = this.Saint[this.DayTomorrow][this.MonthTomorrow];
-    log(`Today ${  this.DayNow  }/${  this.MonthNow  }:` , this.Data.today);
-    log(`Tomorrow ${  this.DayTomorrow  }/${  this.MonthTomorrow  }:` , this.Data.tomorrow);
+    log(`Today ${this.DayNow}/${this.MonthNow}:`, this.Data.today);
+    log(`Tomorrow ${this.DayTomorrow}/${this.MonthTomorrow}:`, this.Data.tomorrow);
 
     return this.Data;
   },

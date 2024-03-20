@@ -1,9 +1,9 @@
-/* Magic Mirror
+/*
  * Module: MMM-Saint
  */
 
 Module.register("MMM-Saint", {
-  requiresVersion: "2.14.0",
+  requiresVersion: "2.26.0",
   defaults: {
     debug: false,
     personalize: {
@@ -62,10 +62,10 @@ Module.register("MMM-Saint", {
   displayData () {
     var today = document.getElementById("TODAY");
     var tomorrow = document.getElementById("TOMORROW");
-    if (this.config.personalize.displayIcon) today.innerHTML = `<span class="fas fa-bible"></span> ${  this.Saint.today}`;
+    if (this.config.personalize.displayIcon) today.innerHTML = `<span class="fas fa-bible"></span> ${this.Saint.today}`;
     else {
-      today.textContent = `${this.config.personalize.todayText  } ${  this.Saint.today}`;
-      if (this.config.personalize.displayTomorrow) tomorrow.textContent = `${this.config.personalize.tomorrowText  } ${  this.Saint.tomorrow}`;
+      today.textContent = `${this.config.personalize.todayText} ${this.Saint.today}`;
+      if (this.config.personalize.displayTomorrow) tomorrow.textContent = `${this.config.personalize.tomorrowText} ${this.Saint.tomorrow}`;
     }
   },
 
