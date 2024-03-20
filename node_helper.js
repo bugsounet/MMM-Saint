@@ -405,12 +405,13 @@ module.exports = NodeHelper.create({
   },
 
   initialize () {
-    console.log("[SAINT] MMM-Saint is now initialized!");
+    console.log("[SAINT] MMM-Saint Version:", require("./package.json").version, "rev:", require("./package.json").rev);
     this.sendSocketNotification("INITIALIZED");
     this.myDay= new Date().getUTCDate();
     this.getDate();
     this.sendData(this.SaintDuJour());
     this.update();
+    console.log("[SAINT] MMM-Saint is now initialized!");
   },
 
   sendData (data) {
