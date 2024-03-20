@@ -24,7 +24,7 @@ Copiez simplement cette partie de code dans votre fichier de configuration de Ma
 },
 ```
 
-## Option
+## Options
 
 Par defaut, afin de mettre a jour rapidement les données, MMM-Saint vérifie la date du jour toutes les minutes.<br>
 Vous pouvez toutefois spéficier un autre interval de mise a jour, si vous le désirez, avec le champs `update` en configuration (le temps sera en ms)
@@ -48,6 +48,19 @@ Exemple de configuration, si vous voulez effectuer une verification toutes les 5
   }
 },
 ```
+
+ | Option  | Description | Type | Defaut |
+ | ------- | --- | --- | --- |
+ | debug | Active le debug mode | Boolean | false |
+ | update | Interval de mise à jour | Number | 300000 |
+ | personalize | Personalisation | Object | |
+
+ | personalize Object Option  | Description | Type | Defaut |
+ | ------- | --- | --- | --- |
+ | displayTomorrow | Affiche le saint du lendemain | Boolean | false |
+ | todayText | Texte pour le saint du jour | String | Aujourd'hui, nous fêtons |
+ | tomorrowText | Texte pour le saint du lendemain | String | Demain, nous fêterons |
+ | displayIcon | Affiche l'icone | Boolean | true |
 
 # Mise à jour
 
