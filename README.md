@@ -16,7 +16,7 @@ npm install
 
 Copiez simplement cette partie de code dans votre fichier de configuration de MagicMirror
 
-```
+```js
 {
   module: 'MMM-Saint',
   position: "top_center",
@@ -31,15 +31,32 @@ Vous pouvez toutefois spéficier un autre interval de mise a jour, si vous le d�
 
 Exemple de configuration, si vous voulez effectuer une verification toutes les 5 mins.
 
-```
+```js
 {
   module: 'MMM-Saint',
   position: "top_center",
   configDeepMerge: true,
   config: {
-    update: 1000*60*5
+    debug: false,
+    update: 1000*60*5,
+    personalize: {
+      displayTomorrow: false,
+      todayText: "Aujourd'hui, nous fêtons",
+      tomorrowText: "Demain, nous fêterons",
+      displayIcon: true
+    }
   }
 },
+```
+
+# Mise à jour
+
+Une mise à jour de MMM-Saint est disponible ?
+Utilisez cette commande:
+
+```sh
+cd ~/MagicMirror/modules/MMM-Saint
+npm run update
 ```
 
 # Crédits
