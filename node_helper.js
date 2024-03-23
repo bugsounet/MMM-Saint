@@ -407,7 +407,7 @@ module.exports = NodeHelper.create({
   initialize () {
     console.log("[SAINT] MMM-Saint Version:", require("./package.json").version, "rev:", require("./package.json").rev);
     this.sendSocketNotification("INITIALIZED");
-    this.myDay= new Date().getUTCDate();
+    this.myDay= new Date(Date.now()).getDate();
     this.getDate();
     this.sendData(this.SaintDuJour());
     this.update();
@@ -441,11 +441,11 @@ module.exports = NodeHelper.create({
   },
 
   getDate () {
-    var MyDate = new Date();
-    this.DayNow = MyDate.getUTCDate();
-    this.MonthNow = MyDate.getUTCMonth() + 1;
-    var Tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
-    this.DayTomorrow = Tomorrow.getUTCDate();
-    this.MonthTomorrow = Tomorrow.getUTCMonth() +1;
+    var MyDate = new Date(Date.now());
+    this.DayNow = MyDate.getDate();
+    this.MonthNow = MyDate.getMonth() + 1;
+    var Tomorrow = new Date(new Date(Date.now()).setDate(new Date(Date.now()).getDate() + 1));
+    this.DayTomorrow = Tomorrow.getDate();
+    this.MonthTomorrow = Tomorrow.getMonth() +1;
   }
 });
