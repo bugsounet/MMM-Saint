@@ -1,6 +1,6 @@
 {
   "name": "MMM-Saint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "rev": "240324",
   "description": "Affiche le saint du jour sur MagicMirror",
   "main": "MMM-Saint.js",
