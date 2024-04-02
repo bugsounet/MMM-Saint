@@ -1,7 +1,7 @@
 {
   "name": "MMM-Saint",
-  "version": "1.0.2",
-  "rev": "240324",
+  "version": "1.0.3",
+  "rev": "240402",
   "description": "Affiche le saint du jour sur MagicMirror",
   "main": "MMM-Saint.js",
   "repository": {
@@ -34,7 +34,7 @@
   "homepage": "https://github.com/bugsounet/MMM-Saint",
   "dependencies": {
     "esbuild": "^0.20.2",
-    "glob": "^10.3.10"
+    "glob": "^10.3.12"
   },
   "devDependencies": {
     "@eslint/js": "^8.57.0",

@@ -72,11 +72,35 @@ Notes:
 # Mise à jour
 
 Une mise à jour de MMM-Saint est disponible ?
+
+## Manuellement
+
 Utilisez cette commande:
 
 ```sh
 cd ~/MagicMirror/modules/MMM-Saint
 npm run update
+```
+
+## Automatiquement avec le module par defaut [updatenotification](https://develop.docs.magicmirror.builders/modules/updatenotification.html)
+
+Depuis MagicMirror² v2.27.x, nous pouvons appliquer les mises à jour automatiquement des modules tierces depuis `updatenotification`.<br>
+Ajoutons la règle pour `MMM-Saint`
+
+```js
+  {
+    module: "updatenotification",
+    position: "top_center",
+    config: {
+      updateAutorestart: true, // Redémarre automatiquement MagicMirror² après la mise à jour
+      updates: [
+        // regle de MMM-Saint
+        {
+          "MMM-Saint": "npm run update"
+        },
+      ]
+    }
+  },
 ```
 
 # Crédits
