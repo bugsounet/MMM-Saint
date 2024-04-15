@@ -41,8 +41,6 @@ Module.register("MMM-Saint", {
   },
 
   getDom () {
-    var wrapper= document.createElement("div");
-
     var saint= document.createElement("div");
     saint.id= "SAINT";
 
@@ -54,9 +52,7 @@ Module.register("MMM-Saint", {
 
     saint.appendChild(today);
     saint.appendChild(tomorrow);
-
-    wrapper.appendChild(saint);
-    return wrapper;
+    return saint;
   },
 
   displayData () {
