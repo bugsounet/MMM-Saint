@@ -1,7 +1,7 @@
 {
   "name": "MMM-Saint",
-  "version": "1.0.5",
-  "rev": "240526",
+  "version": "1.1.0",
+  "rev": "240701",
   "description": "Affiche le saint du jour sur MagicMirror",
   "main": "MMM-Saint.js",
   "repository": {
@@ -30,6 +30,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bugsounet/MMM-Saint/issues"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "homepage": "https://github.com/bugsounet/MMM-Saint",
   "dependencies": {
