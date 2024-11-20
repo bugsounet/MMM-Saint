@@ -6,13 +6,13 @@
 
 const NodeHelper = require("node_helper");
 
-var log = (...args) => { /* do nothing */ };
+var log = () => { /* do nothing */ };
 
 module.exports = NodeHelper.create({
   start () {
     console.log("[SAINT] MMM-Saint Version:", require("./package.json").version);
     this.Saint = new Array();
-    for (i=1;i<=31;i++) this.Saint[i] = new Array();
+    for (var i = 1; i <= 31; i++) this.Saint[i] = new Array();
 
     /** this.Saint[jour][mois] = "Nom du this.Saint" **/
     this.Saint[1][1] = "Jour de l'an";
@@ -165,7 +165,7 @@ module.exports = NodeHelper.create({
     this.Saint[13][4] = "Ste Ida";
     this.Saint[13][5] = "Ste Rolande";
     this.Saint[13][6] = "St Antoine";
-    this.Saint[13][7] = "St Henri][St Joël";
+    this.Saint[13][7] = "St Henri - St Joël";
     this.Saint[13][8] = "St Hippolyte";
     this.Saint[13][9] = "St Aimé";
     this.Saint[13][10] = "St Géraud";
@@ -177,7 +177,7 @@ module.exports = NodeHelper.create({
     this.Saint[14][4] = "St Maxime";
     this.Saint[14][5] = "St Matthias";
     this.Saint[14][6] = "St Elisée";
-    this.Saint[14][7] = "St Camille][Fête Nationale";
+    this.Saint[14][7] = "St Camille - Fête Nationale";
     this.Saint[14][8] = "St Evrard";
     this.Saint[14][9] = "St Materne";
     this.Saint[14][10] = "St Juste";
@@ -190,7 +190,7 @@ module.exports = NodeHelper.create({
     this.Saint[15][5] = "Ste Denise";
     this.Saint[15][6] = "Ste Germaine";
     this.Saint[15][7] = "St Donald";
-    this.Saint[15][8] = "Ste Marie][Assomption";
+    this.Saint[15][8] = "Ste Marie - Assomption";
     this.Saint[15][9] = "St Roland";
     this.Saint[15][10] = "Ste Thérèse";
     this.Saint[15][11] = "St Albert";
@@ -323,7 +323,7 @@ module.exports = NodeHelper.create({
     this.Saint[26][6] = "St Anthelme";
     this.Saint[26][7] = "Ste Anne";
     this.Saint[26][8] = "Ste Natacha";
-    this.Saint[26][9] = "St Côme][St Damien";
+    this.Saint[26][9] = "St Côme - St Damien";
     this.Saint[26][10] = "St Dimitri";
     this.Saint[26][11] = "Ste Delphine";
     this.Saint[26][12] = "St Etienne";
@@ -356,7 +356,7 @@ module.exports = NodeHelper.create({
     this.Saint[29][3] = "Ste Gwladys";
     this.Saint[29][4] = "Ste Catherine";
     this.Saint[29][5] = "St Aymard";
-    this.Saint[29][6] = "St Pierre][St Paul";
+    this.Saint[29][6] = "St Pierre - St Paul";
     this.Saint[29][7] = "Ste Marthe";
     this.Saint[29][8] = "Ste Sabine";
     this.Saint[29][9] = "Sts Michel";
@@ -382,12 +382,12 @@ module.exports = NodeHelper.create({
     this.Saint[31][10] = "St Quentin";
     this.Saint[31][12] = "St Sylvestre";
 
-    this.DayNow= null;
-    this.MonthNow= null;
-    this.myDay= null;
+    this.DayNow = null;
+    this.MonthNow = null;
+    this.myDay = null;
     this.DayTomorrow = null;
     this.MonthTomorrow = null;
-    this.Data= {
+    this.Data = {
       today: null,
       tomorrow: null
     };
@@ -398,7 +398,7 @@ module.exports = NodeHelper.create({
       case "CONFIG":
         this.config = payload;
         if (this.config.debug) log = (...args) => { console.log("[SAINT]", ...args); };
-        log("Config:" , this.config);
+        log("Config:", this.config);
         this.initialize();
         break;
     }
@@ -407,7 +407,7 @@ module.exports = NodeHelper.create({
   initialize () {
     console.log("[SAINT] MMM-Saint Version:", require("./package.json").version, "rev:", require("./package.json").rev);
     this.sendSocketNotification("INITIALIZED");
-    this.myDay= new Date(Date.now()).getDate();
+    this.myDay = new Date(Date.now()).getDate();
     this.getDate();
     this.sendData(this.SaintDuJour());
     this.update();
@@ -446,6 +446,6 @@ module.exports = NodeHelper.create({
     this.MonthNow = MyDate.getMonth() + 1;
     var Tomorrow = new Date(new Date(Date.now()).setDate(new Date(Date.now()).getDate() + 1));
     this.DayTomorrow = Tomorrow.getDate();
-    this.MonthTomorrow = Tomorrow.getMonth() +1;
+    this.MonthTomorrow = Tomorrow.getMonth() + 1;
   }
 });

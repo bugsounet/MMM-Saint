@@ -12,14 +12,14 @@ Module.register("MMM-Saint", {
       tomorrowText: "Demain, nous fêterons",
       displayIcon: true
     },
-    update: 60*1000
+    update: 60 * 1000
   },
 
   start () {
     console.log("[SAINT] Starting MMM-Saint...");
   },
 
-  notificationReceived (notification, payload) {
+  notificationReceived (notification) {
     switch (notification) {
       case "DOM_OBJECTS_CREATED":
         this.sendSocketNotification("CONFIG", this.config);
@@ -34,21 +34,21 @@ Module.register("MMM-Saint", {
         break;
       case "DATA":
         if (this.config.debug) console.log("[SAINT] Data", payload);
-        this.Saint= payload;
+        this.Saint = payload;
         this.displayData();
         break;
     }
   },
 
   getDom () {
-    var saint= document.createElement("div");
-    saint.id= "SAINT";
+    var saint = document.createElement("div");
+    saint.id = "SAINT";
 
-    var today= document.createElement("div");
+    var today = document.createElement("div");
     today.id = "TODAY";
 
     var tomorrow = document.createElement("div");
-    tomorrow.id= "TOMORROW";
+    tomorrow.id = "TOMORROW";
 
     saint.appendChild(today);
     saint.appendChild(tomorrow);
